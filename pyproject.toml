@@ -1,0 +1,7 @@
+[build-system]
+requires = ["setuptools>=61.0", "cython", "numpy"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "entropy"
+version = "0.1.0"
