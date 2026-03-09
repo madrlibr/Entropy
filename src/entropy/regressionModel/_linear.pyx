@@ -16,7 +16,7 @@ cdef class LinearRegression(BaseEstimator):
         self.bias = 0.0
         self.weight = 0.0
 
-    def train(self, double[:, :] x, double[:, :] y, long long epoch, double lr):
+    def fit(self, double[:, :] x, double[:, :] y, long long epoch, double lr):
         cdef int n = x.shape[0]
         cdef int m = x.shape[1]
         cdef int i, j, e
@@ -47,7 +47,7 @@ cdef class LinearRegression(BaseEstimator):
         return nparr
 
     
-cdef class LinearROLS:
+cdef class LinearROLS(BaseEstimator):
     cdef public double weight
     cdef public double bias
     
@@ -55,7 +55,7 @@ cdef class LinearROLS:
         self.bias = 0.0
         self.weight = 0.0
 
-    def train(self, double[:, :] X, double[:, :] Y):
+    def fit(self, double[:, :] X, double[:, :] Y):
         cdef double sigmaX, sigmaY, sigmaXS, sigmaXY
         cdef int i, n
         
